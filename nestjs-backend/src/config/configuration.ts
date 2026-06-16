@@ -4,9 +4,9 @@ export default () => ({
   database: {
     type: process.env.DB_TYPE || 'sqlite',
     host: process.env.DB_HOST || 'localhost',
-    port: parseInt(String(process.env.DB_PORT || '5432'), 10),
-    username: process.env.DB_USER || 'postgres',
-    password: process.env.DB_PASSWORD || 'postgres',
+    port: parseInt(String(process.env.DB_PORT || '3306'), 10),
+    username: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'hubspot_sync',
   },
 

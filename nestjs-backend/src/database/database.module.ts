@@ -23,6 +23,19 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
           } as TypeOrmModuleOptions;
         }
 
+        if (dbType === 'mysql') {
+          return {
+            type: 'mysql',
+            host: String(configService.get('database.host')),
+            port: Number(configService.get('database.port')),
+            username: String(configService.get('database.username')),
+            password: String(configService.get('database.password')),
+            database: String(configService.get('database.database')),
+            autoLoadEntities: true,
+            synchronize: true,
+          } as TypeOrmModuleOptions;
+        }
+
         return {
           type: 'better-sqlite3',
           database: 'data/hubspot_sync.sqlite',

@@ -29,10 +29,10 @@ export class ExecutionLog {
   @Column({ default: 'PENDING' })
   status: LogStatus;
 
-  @Column('jsonb', { name: 'request_payload', nullable: true })
+  @Column('json', { name: 'request_payload', nullable: true })
   requestPayload: Record<string, unknown>;
 
-  @Column('jsonb', { name: 'response_payload', nullable: true })
+  @Column('json', { name: 'response_payload', nullable: true })
   responsePayload: Record<string, unknown>;
 
   @Column({ name: 'error_message', nullable: true })

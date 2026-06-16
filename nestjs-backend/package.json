@@ -20,6 +20,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@aws-sdk/client-ec2": "^3.1069.0",
+    "@aws-sdk/client-rds": "^3.1069.0",
+    "@aws-sdk/client-ssm": "^3.1069.0",
     "@nestjs/bullmq": "^11.0.4",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.4",
@@ -28,6 +31,7 @@
     "@nestjs/typeorm": "^11.0.1",
     "better-sqlite3": "^12.10.0",
     "bullmq": "^5.78.0",
+    "mysql2": "^3.22.5",
     "pg": "^8.21.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",

@@ -71,12 +71,35 @@ cp .env.example .env
 # Editar .env según entorno
 ```
 
+#### Desarrollo local (SQLite)
+
+| Variable | Valor |
+|---|---|
+| `DB_TYPE` | `sqlite` |
+| `PORT` | `3000` |
+
+No requiere base de datos externa. El archivo se crea en `data/hubspot_sync.sqlite`.
+
+#### Producción AWS (MySQL)
+
+| Variable | Valor de ejemplo |
+|---|---|
+| `DB_TYPE` | `mysql` |
+| `DB_HOST` | `db-panama-pacifico.cnkbgcbnfgs5.us-east-2.rds.amazonaws.com` |
+| `DB_PORT` | `3306` |
+| `DB_USER` | Usuario MySQL |
+| `DB_PASSWORD` | Password MySQL |
+| `DB_NAME` | `hubspot_sync` |
+
+La base de datos `hubspot_sync` debe crearse manualmente en el servidor MySQL antes del primer deploy. TypeORM (`synchronize: true`) crea las tablas automáticamente al arrancar.
+
+#### Comunes a ambos entornos
+
 | Variable | Descripción |
 |---|---|
 | `EXTERNAL_API_BASE_URL` | URL base de la API externa destino |
-| `DB_TYPE` | `sqlite` (local) o `mysql` (producción) |
 | `HUBSPOT_CLIENT_SECRET` | App secret para validar firma v3 (opcional en dev) |
-| `REDIS_HOST` | Host de Redis (opcional) |
+| `REDIS_HOST` | Host de Redis (opcional — sin Redis usa forward síncrono) |
 
 ### Iniciar el backend
 
