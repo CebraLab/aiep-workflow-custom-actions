@@ -1,0 +1,104 @@
+{
+  "uid": "admision_nocallcenter_action",
+  "type": "workflow-action",
+  "config": {
+    "actionUrl": "https://b85b-191-111-3-64.ngrok-free.app/api/hubspot/execute/admision-no-callcenter",
+    "isPublished": false,
+    "supportedClients": [{ "client": "WORKFLOWS" }],
+    "objectTypes": ["CONTACT"],
+    "inputFields": [
+      {
+        "typeDefinition": {
+          "name": "ap_tipolanding",
+          "type": "string",
+          "fieldType": "text"
+        },
+        "supportedValueTypes": ["OBJECT_PROPERTY"],
+        "isRequired": true
+      },
+      {
+        "typeDefinition": {
+          "name": "eres_estudiante_de_ed__media_",
+          "type": "enumeration",
+          "fieldType": "booleancheckbox"
+        },
+        "supportedValueTypes": ["OBJECT_PROPERTY"],
+        "isRequired": false
+      },
+      {
+        "typeDefinition": {
+          "name": "ap_curso",
+          "type": "string",
+          "fieldType": "text"
+        },
+        "supportedValueTypes": ["OBJECT_PROPERTY"],
+        "isRequired": true
+      }
+    ],
+    "objectRequestOptions": {
+      "properties": ["ap_tipolanding", "eres_estudiante_de_ed__media_", "ap_curso"]
+    },
+    "outputFields": [
+      {
+        "typeDefinition": {
+          "name": "externalStatus",
+          "type": "string",
+          "fieldType": "text"
+        }
+      },
+      {
+        "typeDefinition": {
+          "name": "errorMessage",
+          "type": "string",
+          "fieldType": "text"
+        }
+      }
+    ],
+    "executionRules": [
+      {
+        "labelName": "apiError",
+        "conditions": { "externalStatus": ["ERROR"] }
+      }
+    ],
+    "labels": {
+      "en": {
+        "actionName": "Admission — Send without Call Center",
+        "actionDescription": "Sends admission data to the external queue without call center routing.",
+        "actionCardContent": "Admission No Call Center: {{ap_tipolanding}}",
+        "appDisplayName": "External Queues",
+        "inputFieldLabels": {
+          "ap_tipolanding": "Tipo de Landing",
+          "eres_estudiante_de_ed__media_": "Es Estudiante de Ed. Media",
+          "ap_curso": "Curso"
+        },
+        "inputFieldDescriptions": {},
+        "outputFieldLabels": {
+          "externalStatus": "Status",
+          "errorMessage": "Error Message"
+        },
+        "executionRules": {
+          "apiError": "External API error: {{ errorMessage }}"
+        }
+      },
+      "es": {
+        "actionName": "Admisión — Enviar sin Call Center",
+        "actionDescription": "Envía datos de admisión a la cola externa sin enrutamiento a call center.",
+        "actionCardContent": "Admisión Sin Call Center: {{ap_tipolanding}}",
+        "appDisplayName": "Colas Externas",
+        "inputFieldLabels": {
+          "ap_tipolanding": "Tipo de Landing",
+          "eres_estudiante_de_ed__media_": "Es Estudiante de Ed. Media",
+          "ap_curso": "Curso"
+        },
+        "inputFieldDescriptions": {},
+        "outputFieldLabels": {
+          "externalStatus": "Estado",
+          "errorMessage": "Mensaje de Error"
+        },
+        "executionRules": {
+          "apiError": "Error en API externa: {{ errorMessage }}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "uid": "external_system_sync_app",
+  "type": "app",
+  "config": {
+    "description": "Sends HubSpot CRM data to external systems via configurable API endpoints. Supports admission workflows with/without call center and difusion.",
+    "name": "External System Sync",
+    "distribution": "private",
+    "auth": {
+      "type": "static",
+      "requiredScopes": [
+        "automation",
+        "crm.objects.contacts.read"
+      ],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": {
+      "fetch": [
+        "https://api.hubapi.com",
+        "https://cornfield-pointer-upcountry.ngrok-free.dev"
+      ],
+      "iframe": [],
+      "img": []
+    },
+    "support": {
+      "supportEmail": "soporte@aiep.cl"
+    }
+  }
+}
