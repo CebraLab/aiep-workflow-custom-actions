@@ -2,7 +2,7 @@
   "uid": "difusion_action",
   "type": "workflow-action",
   "config": {
-    "actionUrl": "https://b85b-191-111-3-64.ngrok-free.app/api/hubspot/execute/difusion",
+    "actionUrl": "https://intent-panels-lottery-controls.trycloudflare.com/api/hubspot/execute/difusion",
     "isPublished": false,
     "supportedClients": [{ "client": "WORKFLOWS" }],
     "objectTypes": ["CONTACT"],

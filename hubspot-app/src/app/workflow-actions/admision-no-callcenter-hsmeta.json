@@ -2,7 +2,7 @@
   "uid": "admision_nocallcenter_action",
   "type": "workflow-action",
   "config": {
-    "actionUrl": "https://b85b-191-111-3-64.ngrok-free.app/api/hubspot/execute/admision-no-callcenter",
+    "actionUrl": "https://intent-panels-lottery-controls.trycloudflare.com/api/hubspot/execute/admision-no-callcenter",
     "isPublished": false,
     "supportedClients": [{ "client": "WORKFLOWS" }],
     "objectTypes": ["CONTACT"],
