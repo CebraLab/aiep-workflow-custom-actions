@@ -2,7 +2,7 @@
   "uid": "admision_callcenter_action",
   "type": "workflow-action",
   "config": {
-    "actionUrl": "https://intent-panels-lottery-controls.trycloudflare.com/api/hubspot/execute/admision-callcenter",
+    "actionUrl": "https://aiep-test.cebralab.com/api/hubspot/execute/admision-callcenter",
     "isPublished": false,
     "supportedClients": [{ "client": "WORKFLOWS" }],
     "objectTypes": ["CONTACT"],
