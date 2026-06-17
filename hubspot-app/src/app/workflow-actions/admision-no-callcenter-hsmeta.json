@@ -6,38 +6,7 @@
     "isPublished": false,
     "supportedClients": [{ "client": "WORKFLOWS" }],
     "objectTypes": ["CONTACT"],
-    "inputFields": [
-      {
-        "typeDefinition": {
-          "name": "ap_tipolanding",
-          "type": "string",
-          "fieldType": "text"
-        },
-        "supportedValueTypes": ["OBJECT_PROPERTY"],
-        "isRequired": true
-      },
-      {
-        "typeDefinition": {
-          "name": "eres_estudiante_de_ed__media_",
-          "type": "enumeration",
-          "fieldType": "booleancheckbox"
-        },
-        "supportedValueTypes": ["OBJECT_PROPERTY"],
-        "isRequired": false
-      },
-      {
-        "typeDefinition": {
-          "name": "ap_curso",
-          "type": "string",
-          "fieldType": "text"
-        },
-        "supportedValueTypes": ["OBJECT_PROPERTY"],
-        "isRequired": true
-      }
-    ],
-    "objectRequestOptions": {
-      "properties": ["ap_tipolanding", "eres_estudiante_de_ed__media_", "ap_curso"]
-    },
+    "inputFields": [],
     "outputFields": [
       {
         "typeDefinition": {
@@ -63,33 +32,25 @@
     "labels": {
       "en": {
         "actionName": "Admission — Send without Call Center",
-        "actionDescription": "Sends admission data to the external queue without call center routing.",
-        "actionCardContent": "Admission No Call Center: {{ap_tipolanding}}",
+        "actionDescription": "Sends the enrolled record ID to the admission queue without call center routing.",
+        "actionCardContent": "Send without Call Center",
         "appDisplayName": "External Queues",
-        "inputFieldLabels": {
-          "ap_tipolanding": "Tipo de Landing",
-          "eres_estudiante_de_ed__media_": "Es Estudiante de Ed. Media",
-          "ap_curso": "Curso"
-        },
-        "inputFieldDescriptions": {},
+        "inputFieldLabels": {},
         "outputFieldLabels": {
           "externalStatus": "Status",
           "errorMessage": "Error Message"
         },
+        "inputFieldDescriptions": {},
         "executionRules": {
           "apiError": "External API error: {{ errorMessage }}"
         }
       },
       "es": {
         "actionName": "Admisión — Enviar sin Call Center",
-        "actionDescription": "Envía datos de admisión a la cola externa sin enrutamiento a call center.",
-        "actionCardContent": "Admisión Sin Call Center: {{ap_tipolanding}}",
+        "actionDescription": "Envía el ID del registro enrolado a la cola de admisión sin enrutamiento a call center.",
+        "actionCardContent": "Enviar sin Call Center",
         "appDisplayName": "Colas Externas",
-        "inputFieldLabels": {
-          "ap_tipolanding": "Tipo de Landing",
-          "eres_estudiante_de_ed__media_": "Es Estudiante de Ed. Media",
-          "ap_curso": "Curso"
-        },
+        "inputFieldLabels": {},
         "inputFieldDescriptions": {},
         "outputFieldLabels": {
           "externalStatus": "Estado",

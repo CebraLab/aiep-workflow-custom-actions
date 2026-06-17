@@ -6,38 +6,7 @@
     "isPublished": false,
     "supportedClients": [{ "client": "WORKFLOWS" }],
     "objectTypes": ["CONTACT"],
-    "inputFields": [
-      {
-        "typeDefinition": {
-          "name": "ap_rbd",
-          "type": "string",
-          "fieldType": "text"
-        },
-        "supportedValueTypes": ["OBJECT_PROPERTY"],
-        "isRequired": true
-      },
-      {
-        "typeDefinition": {
-          "name": "eres_estudiante_de_ed__media_",
-          "type": "enumeration",
-          "fieldType": "booleancheckbox"
-        },
-        "supportedValueTypes": ["OBJECT_PROPERTY"],
-        "isRequired": true
-      },
-      {
-        "typeDefinition": {
-          "name": "id_actividad_de_colegio",
-          "type": "string",
-          "fieldType": "text"
-        },
-        "supportedValueTypes": ["OBJECT_PROPERTY"],
-        "isRequired": true
-      }
-    ],
-    "objectRequestOptions": {
-      "properties": ["ap_rbd", "eres_estudiante_de_ed__media_", "id_actividad_de_colegio"]
-    },
+    "inputFields": [],
     "outputFields": [
       {
         "typeDefinition": {
@@ -63,33 +32,25 @@
     "labels": {
       "en": {
         "actionName": "Difusion — Send to External Queue",
-        "actionDescription": "Sends difusion data to the external queue.",
-        "actionCardContent": "Difusion: {{ap_rbd}}",
+        "actionDescription": "Sends the enrolled record ID to the difusion queue.",
+        "actionCardContent": "Send to Difusion",
         "appDisplayName": "External Queues",
-        "inputFieldLabels": {
-          "ap_rbd": "RBD",
-          "eres_estudiante_de_ed__media_": "Es Estudiante de Ed. Media",
-          "id_actividad_de_colegio": "ID Actividad de Colegio"
-        },
-        "inputFieldDescriptions": {},
+        "inputFieldLabels": {},
         "outputFieldLabels": {
           "externalStatus": "Status",
           "errorMessage": "Error Message"
         },
+        "inputFieldDescriptions": {},
         "executionRules": {
           "apiError": "External API error: {{ errorMessage }}"
         }
       },
       "es": {
         "actionName": "Difusión — Enviar a Cola Externa",
-        "actionDescription": "Envía datos de difusión a la cola externa.",
-        "actionCardContent": "Difusión: {{ap_rbd}}",
+        "actionDescription": "Envía el ID del registro enrolado a la cola de difusión.",
+        "actionCardContent": "Enviar a Difusión",
         "appDisplayName": "Colas Externas",
-        "inputFieldLabels": {
-          "ap_rbd": "RBD",
-          "eres_estudiante_de_ed__media_": "Es Estudiante de Ed. Media",
-          "id_actividad_de_colegio": "ID Actividad de Colegio"
-        },
+        "inputFieldLabels": {},
         "inputFieldDescriptions": {},
         "outputFieldLabels": {
           "externalStatus": "Estado",

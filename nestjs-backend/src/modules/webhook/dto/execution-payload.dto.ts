@@ -12,7 +12,7 @@ export interface ExecutionPayloadDto {
   object: {
     objectId: number;
     objectType: string;
-    properties: Record<string, unknown>;
+    properties?: Record<string, unknown>;
   };
-  inputFields: Record<string, unknown>;
+  inputFields?: Record<string, unknown>;
 }

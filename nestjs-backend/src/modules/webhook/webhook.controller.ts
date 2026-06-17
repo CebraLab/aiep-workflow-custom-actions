@@ -118,15 +118,8 @@ export class WebhookController {
   }
 
   private buildExternalPayload(payload: ExecutionPayloadDto) {
-    const properties: Record<string, unknown> = {};
-
-    for (const [key, value] of Object.entries(payload.inputFields)) {
-      properties[key] = value;
-    }
-
     return {
       objectId: String(payload.object.objectId),
-      properties,
     };
   }
 
