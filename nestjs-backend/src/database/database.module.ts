@@ -20,6 +20,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
             database: String(configService.get('database.database')),
             autoLoadEntities: true,
             synchronize: true,
+            retryAttempts: 10,
+            retryDelay: 5000,
           } as TypeOrmModuleOptions;
         }
 
@@ -33,6 +35,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
             database: String(configService.get('database.database')),
             autoLoadEntities: true,
             synchronize: true,
+            retryAttempts: 10,
+            retryDelay: 5000,
           } as TypeOrmModuleOptions;
         }
 
