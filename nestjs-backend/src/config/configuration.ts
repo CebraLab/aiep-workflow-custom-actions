@@ -20,6 +20,6 @@ export default () => ({
   },
 
   externalApi: {
-    baseUrl: process.env.EXTERNAL_API_BASE_URL || 'https://upset-impalas-clap.loca.lt',
+    baseUrl: process.env.EXTERNAL_API_BASE_URL || 'https://aiep.cebralab.com',
   },
 });

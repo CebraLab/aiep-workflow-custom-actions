@@ -2,6 +2,7 @@ import { Controller, Post, Body, UseGuards, Logger } from '@nestjs/common';
 import { ExecutionLogService } from '../execution-log/execution-log.service';
 import type { WorkflowType } from '../execution-log/execution-log.entity';
 import { QueueService } from '../queue/queue.service';
+import { QueueAuthService } from '../../common/queue-auth.service';
 import { HubspotSignatureGuard } from '../../common/guards/hubspot-signature.guard';
 import type { ExecutionPayloadDto } from './dto/execution-payload.dto';
 
@@ -13,6 +14,7 @@ export class WebhookController {
   constructor(
     private readonly executionLogService: ExecutionLogService,
     private readonly queueService: QueueService,
+    private readonly queueAuthService: QueueAuthService,
   ) {}
 
   @Post('admision-callcenter')
@@ -87,9 +89,14 @@ export class WebhookController {
     body: Record<string, unknown>,
   ): Promise<{ success: boolean; error?: string }> {
     try {
+      const token = await this.queueAuthService.getAccessToken();
+
       const response = await fetch(endpointUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(body),
         signal: AbortSignal.timeout(30000),
       });
@@ -125,8 +132,7 @@ export class WebhookController {
 
   private getEndpointUrl(type: WorkflowType): string {
     const baseUrl =
-      process.env.EXTERNAL_API_BASE_URL ||
-      'https://cornfield-pointer-upcountry.ngrok-free.dev';
+      process.env.EXTERNAL_API_BASE_URL || 'https://aiep.cebralab.com';
     const paths: Record<WorkflowType, string> = {
       'admision-callcenter': '/api/v1/queues/hubspot/workflow/admision/callcenter',
       'admision-no-callcenter':

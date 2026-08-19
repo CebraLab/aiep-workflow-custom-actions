@@ -2,7 +2,7 @@
   "uid": "admision_nocallcenter_action",
   "type": "workflow-action",
   "config": {
-    "actionUrl": "https://aiep-test.cebralab.com/api/hubspot/execute/admision-no-callcenter",
+    "actionUrl": "https://aiep.cebralab.com/api/hubspot/execute/admision-no-callcenter",
     "isPublished": false,
     "supportedClients": [{ "client": "WORKFLOWS" }],
     "objectTypes": ["CONTACT"],

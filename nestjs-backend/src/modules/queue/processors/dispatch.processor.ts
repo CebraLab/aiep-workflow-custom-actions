@@ -1,11 +1,15 @@
 import { Processor, WorkerHost } from '@nestjs/bullmq';
 import { Job } from 'bullmq';
 import { ExecutionLogService } from '../../execution-log/execution-log.service';
+import { QueueAuthService } from '../../../common/queue-auth.service';
 import { DispatchJobData } from '../queue.service';
 
 @Processor('dispatch')
 export class DispatchProcessor extends WorkerHost {
-  constructor(private readonly executionLogService: ExecutionLogService) {
+  constructor(
+    private readonly executionLogService: ExecutionLogService,
+    private readonly queueAuthService: QueueAuthService,
+  ) {
     super();
   }
 
@@ -17,9 +21,14 @@ export class DispatchProcessor extends WorkerHost {
     });
 
     try {
+      const token = await this.queueAuthService.getAccessToken();
+
       const response = await fetch(endpointUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(body),
         signal: AbortSignal.timeout(30000),
       });
